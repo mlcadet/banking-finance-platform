@@ -3,6 +3,8 @@ import KPICard from "../components/cards/KPICard";
 import { kpiData } from "../data/kpiData";
 import LineChartBox from "../components/charts/LineChartBox";
 import TransactionsTable from "../components/tables/TransactionsTable";
+import BarChartBox from "../components/charts/BarChartBox";
+import PieChartBox from "../components/charts/PieChartBox";
 
 export default function Dashboard() {
   return (
@@ -73,6 +75,37 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
+        </div>
+        
+        {/* Secondary Charts */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+            <h2 className="text-lg font-bold text-slate-900">
+            Branch Revenue Comparison
+            </h2>
+
+            <p className="mt-1 text-sm text-slate-500">
+            Fee revenue by branch location.
+            </p>
+
+            <div className="mt-6">
+            <BarChartBox />
+            </div>
+        </div>
+
+        <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+            <h2 className="text-lg font-bold text-slate-900">
+            Transaction Channel Mix
+            </h2>
+
+            <p className="mt-1 text-sm text-slate-500">
+            Share of transaction volume by channel.
+            </p>
+
+            <div className="mt-6">
+            <PieChartBox />
+            </div>
+        </div>
         </div>
 
         {/* Recent Transactions */}

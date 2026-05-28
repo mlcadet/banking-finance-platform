@@ -36,3 +36,45 @@ export const monthlyTransactionData = [
     fees: 410000,
   },
 ];
+
+export const branchPerformanceData = [
+  {
+    branch: "Charlotte",
+    revenue: 842000,
+  },
+  {
+    branch: "Raleigh",
+    revenue: 690000,
+  },
+  {
+    branch: "Atlanta",
+    revenue: 610000,
+  },
+  {
+    branch: "Tampa",
+    revenue: 520000,
+  },
+  {
+    branch: "Nashville",
+    revenue: 430000,
+  },
+];
+
+export const transactionChannelData = [
+  {
+    channel: "Mobile",
+    value: 42,
+  },
+  {
+    channel: "Online",
+    value: 28,
+  },
+  {
+    channel: "ATM",
+    value: 18,
+  },
+  {
+    channel: "Branch",
+    value: 12,
+  },
+];
