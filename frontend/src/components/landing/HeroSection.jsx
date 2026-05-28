@@ -1,5 +1,6 @@
 import Button from "../buttons/Button";
 import useScrollReveal from "../../hooks/useScrollReveal";
+import { Link } from "react-router-dom";
 
 export default function HeroSection() {
   const { elementRef, isVisible } = useScrollReveal();
@@ -23,7 +24,10 @@ export default function HeroSection() {
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
-            <Button>Launch Dashboard</Button>
+            <Link to="/dashboard">
+              <Button>Launch Dashboard</Button>
+            </Link>
+
             <Button variant="secondary">Explore KPIs</Button>
           </div>
         </div>

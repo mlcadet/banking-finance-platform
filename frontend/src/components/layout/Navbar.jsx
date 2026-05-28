@@ -1,12 +1,13 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const navLinks = [
-  "Dashboard",
-  "Branch Performance",
-  "Customers",
-  "Transactions",
-  "Risk",
-  "Reports",
+  { label: "Dashboard", path: "/dashboard" },
+  { label: "Branch Performance", path: "/branches" },
+  { label: "Customers", path: "/customers" },
+  { label: "Transactions", path: "/transactions" },
+  { label: "Risk", path: "/risk" },
+  { label: "Reports", path: "/reports" },
 ];
 
 export default function Navbar() {
@@ -23,18 +24,24 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <ul className="hidden lg:flex items-center gap-7 text-gray-700 font-medium whitespace-nowrap">
           {navLinks.map((link) => (
-            <li key={link}>
-              <a href="#" className="hover:text-blue-600 transition">
-                {link}
-              </a>
+            <li key={link.label}>
+              <Link
+                to={link.path}
+                className="hover:text-blue-600 transition"
+              >
+                {link.label}
+              </Link>
             </li>
           ))}
         </ul>
 
         {/* CTA Button */}
-        <button className="hidden lg:block bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition whitespace-nowrap">
+        <Link
+          to="/dashboard"
+          className="hidden lg:block bg-blue-600 text-white px-5 py-2 rounded-lg hover:bg-blue-700 transition whitespace-nowrap"
+        >
           Launch Dashboard
-        </button>
+        </Link>
 
         {/* Mobile Menu Icon */}
         <button
@@ -50,21 +57,25 @@ export default function Navbar() {
       {isOpen && (
         <div className="lg:hidden fixed top-20 left-0 w-full bg-white/90 backdrop-blur-md shadow-lg px-6 py-5 space-y-4">
           {navLinks.map((link) => (
-            <a
-              key={link}
-              href="#"
-              className="block text-gray-700 hover:text-blue-600 focus:text-blue-600 transition"
+            <Link
+              key={link.label}
+              to={link.path}
+              className="block text-gray-700 hover:text-blue-600 transition"
+              onClick={() => setIsOpen(false)}
             >
-              {link}
-            </a>
+              {link.label}
+            </Link>
           ))}
 
-          <button className="w-full bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-200 transition">
+          <Link
+            to="/dashboard"
+            className="w-full block bg-blue-600 text-white py-3 rounded-lg hover:bg-blue-700 transition"
+            onClick={() => setIsOpen(false)}
+          >
             Launch Dashboard
-          </button>
+          </Link>
         </div>
       )}
-      
     </nav>
   );
 }

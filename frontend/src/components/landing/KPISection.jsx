@@ -24,18 +24,11 @@ export default function KPISection() {
         </ScrollReveal>
 
         <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
-          {kpiData.map((kpi, index) => (
-            <ScrollReveal key={kpi.title} delay={index * 120}>
-              <KPICard
-                label={kpi.label}
-                value={kpi.value}
-                change={kpi.change}
-                trend={kpi.trend}
-                icon={kpi.icon}
-                />
-
+        {kpiData.map((kpi, index) => (
+            <ScrollReveal key={kpi.id} delay={index * 120}>
+            <KPICard {...kpi} />
             </ScrollReveal>
-          ))}
+        ))}
         </div>
       </div>
     </section>

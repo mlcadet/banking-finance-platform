@@ -5,6 +5,7 @@ import LineChartBox from "../components/charts/LineChartBox";
 import TransactionsTable from "../components/tables/TransactionsTable";
 import BarChartBox from "../components/charts/BarChartBox";
 import PieChartBox from "../components/charts/PieChartBox";
+import ScrollReveal from "../components/animation/ScrollReveal";
 
 export default function Dashboard() {
   return (
@@ -24,20 +25,16 @@ export default function Dashboard() {
 
         {/* KPI Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-6">
-          {kpiData.map((kpi) => (
-            <KPICard
-              key={kpi.label}
-              label={kpi.label}
-              value={kpi.value}
-              change={kpi.change}
-              trend={kpi.trend}
-              icon={kpi.icon}
-            />
+          {kpiData.map((kpi, index) => (
+            <ScrollReveal key={kpi.id} delay={index * 120}>
+              <KPICard {...kpi} />
+            </ScrollReveal>
           ))}
         </div>
 
         {/* Dashboard Grid */}
         <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+          {/* Line Chart */}
           <div className="xl:col-span-2 rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
             <h2 className="text-lg font-bold text-slate-900">
               Monthly Transaction Trend
@@ -52,10 +49,9 @@ export default function Dashboard() {
             </div>
           </div>
 
+          {/* Risk Alerts */}
           <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
-            <h2 className="text-lg font-bold text-slate-900">
-              Risk Alerts
-            </h2>
+            <h2 className="text-lg font-bold text-slate-900">Risk Alerts</h2>
 
             <p className="mt-1 text-sm text-slate-500">
               High-priority exceptions requiring review.
@@ -76,36 +72,38 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-        
+
         {/* Secondary Charts */}
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-6">
-        <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+          {/* Bar Chart */}
+          <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
             <h2 className="text-lg font-bold text-slate-900">
-            Branch Revenue Comparison
+              Branch Revenue Comparison
             </h2>
 
             <p className="mt-1 text-sm text-slate-500">
-            Fee revenue by branch location.
+              Fee revenue by branch location.
             </p>
 
             <div className="mt-6">
-            <BarChartBox />
+              <BarChartBox />
             </div>
-        </div>
+          </div>
 
-        <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
+          {/* Pie Chart */}
+          <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
             <h2 className="text-lg font-bold text-slate-900">
-            Transaction Channel Mix
+              Transaction Channel Mix
             </h2>
 
             <p className="mt-1 text-sm text-slate-500">
-            Share of transaction volume by channel.
+              Share of transaction volume by channel.
             </p>
 
             <div className="mt-6">
-            <PieChartBox />
+              <PieChartBox />
             </div>
-        </div>
+          </div>
         </div>
 
         {/* Recent Transactions */}

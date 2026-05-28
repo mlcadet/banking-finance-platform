@@ -7,6 +7,7 @@ import {
 
 export const kpiData = [
   {
+    id: 1,
     label: "Total Transactions",
     value: "34,218",
     change: "+6.8%",
@@ -14,6 +15,7 @@ export const kpiData = [
     icon: CreditCard,
   },
   {
+    id: 2,
     label: "Net Deposits",
     value: "$3.6M",
     change: "+5.2%",
@@ -21,6 +23,7 @@ export const kpiData = [
     icon: Landmark,
   },
   {
+    id: 3,
     label: "Active Customers",
     value: "24,832",
     change: "+1.9%",
@@ -28,6 +31,7 @@ export const kpiData = [
     icon: Users,
   },
   {
+    id: 4,
     label: "Fraud Alerts",
     value: "38",
     change: "-12%",
