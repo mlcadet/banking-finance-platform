@@ -1,3 +1,4 @@
+import LineChartBox from "../components/charts/LineChartBox";
 import DashboardLayout from "../components/layout/DashboardLayout";
 import KPICard from "../components/cards/KPICard";
 import { kpiData } from "../data/kpiData";
@@ -46,9 +47,10 @@ export default function Dashboard() {
       Deposits, withdrawals, and fee revenue over time.
     </p>
 
-    <div className="mt-6 h-72 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500">
-      Chart placeholder
+    <div className="mt-6">
+        <LineChartBox />
     </div>
+    
   </div>
 
   <div className="rounded-2xl bg-white border border-slate-200 p-6 shadow-sm">
