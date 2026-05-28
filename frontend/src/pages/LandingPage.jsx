@@ -1,7 +1,7 @@
 import Navbar from "../components/layout/Navbar";
 import HeroSection from "../components/landing/HeroSection";
 import FeaturesSection from "../components/landing/FeaturesSection";
-import ScrollReveal from "../components/animation/ScrollReveal"; 
+import KPISection from "../components/landing/KPISection";
 
 export default function LandingPage() {
   return (
@@ -10,14 +10,10 @@ export default function LandingPage() {
       <Navbar />
 
       {/* Main Content */}
-      <main className="pt-20">
-        <ScrollReveal>
-          <HeroSection />
-        </ScrollReveal>
-        
-        <ScrollReveal>
-          <FeaturesSection />
-        </ScrollReveal>
+      <main>
+        <HeroSection />
+        <FeaturesSection />
+        <KPISection />
       </main>
     </div>
   );
