@@ -12,7 +12,7 @@ import { monthlyTransactionData } from "../../data/chartData";
 
 export default function LineChartBox() {
   return (
-    <div className="h-72">
+    <div className="w-full min-w-0 h-72 min-h-[288px]">
       <ResponsiveContainer width="100%" height="100%">
         <LineChart data={monthlyTransactionData}>
           <CartesianGrid strokeDasharray="3 3" />
