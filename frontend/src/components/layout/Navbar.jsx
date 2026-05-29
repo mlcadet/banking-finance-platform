@@ -9,6 +9,7 @@ const navLinks = [
   { label: "Transactions", path: "/transactions" },
   { label: "Risk", path: "/risk" },
   { label: "Reports", path: "/reports" },
+  { label: "Transactions", path: "/transactions" }
 ];
 
 export default function Navbar() {
